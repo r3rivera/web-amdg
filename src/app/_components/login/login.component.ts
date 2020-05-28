@@ -3,7 +3,7 @@ import { AuthenticationService } from '@/_service';
 
 
 @Component({
-  selector: 'app-login',
+  selector: 'r3app-login',
   templateUrl: './login.component.html'
 })
 export class LoginComponent implements OnInit {
