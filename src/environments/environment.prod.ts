@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  backendhost: "",
+  apiHostUrl: "https://r2playground.com",
   environmentName: "production"
 };

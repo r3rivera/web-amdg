@@ -8,9 +8,7 @@ import { AuthenticationService } from '@/_service/auth';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(
-    private authService : AuthenticationService
-  ) { 
+  constructor(private _authService : AuthenticationService) { 
 
     console.log("Login Component...")
 

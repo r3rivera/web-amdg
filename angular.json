@@ -126,9 +126,16 @@
             "browserTarget": "web-amdg:build"
           },
           "configurations": {
+            "local": {
+              "browserTarget": "web-amdg:build:local"
+            },
+            "devl": {
+              "browserTarget": "web-amdg:build:devl"
+            },
             "production": {
               "browserTarget": "web-amdg:build:production"
             }
+
           }
         },
         "extract-i18n": {

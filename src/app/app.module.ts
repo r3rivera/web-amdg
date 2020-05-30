@@ -8,6 +8,7 @@ import { RegisterComponent } from './_components/register/register.component';
 import { AlertComponent } from './_components/alert/alert.component';
 import { DashboardComponent } from './_components/secured/dashboard/dashboard.component';
 import { AppRoutingModule } from './app.routing';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,10 +17,10 @@ import { AppRoutingModule } from './app.routing';
     RegisterComponent,
     AlertComponent,
     DashboardComponent
-
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule
   ],
   providers: [],
