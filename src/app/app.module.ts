@@ -13,6 +13,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppointmentComponent } from './_components/secured/appointment/appointment.component';
 import { TokenInterceptor } from './_interceptors/token.interceptor';
 import { ErrorInterceptor } from './_interceptors/error.interceptor';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { ErrorInterceptor } from './_interceptors/error.interceptor';
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule
   ],
   declarations: [
     AppComponent,
