@@ -9,8 +9,11 @@ import { RegisterComponent } from './_components/register/register.component';
 import { AlertComponent } from './_components/alert/alert.component';
 import { DashboardComponent } from './_components/secured/dashboard/dashboard.component';
 import { AppRoutingModule } from './app.routing';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppointmentComponent } from './_components/secured/appointment/appointment.component';
+import { TokenInterceptor } from './_interceptors/token.interceptor';
+import { ErrorInterceptor } from './_interceptors/error.interceptor';
+
 
 @NgModule({
   imports: [
@@ -27,8 +30,10 @@ import { AppointmentComponent } from './_components/secured/appointment/appointm
     DashboardComponent,
     AppointmentComponent
   ],
-
-  providers: [],
+  providers: [
+    { provide : HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    { provide : HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
