@@ -1,6 +1,7 @@
 export const environment = {
     production: false,
-    apiHostUrl: "https://devl.r2playground.com",
+    apiHostUrl: "http://demo7953701.mockable.io",
+    apiBasePath: "/r3app",
     environmentName: "development"
   };
   

@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   apiHostUrl: "",
+  apiBasePath: "/r3app",
   environmentName: "production"
 };
 

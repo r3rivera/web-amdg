@@ -20,7 +20,7 @@ export class BaseService {
   }
 
   getApiUrl() : string {
-    return environment.apiHostUrl;
+    return `${environment.apiHostUrl}${environment.apiBasePath}`;
   }
 
 
