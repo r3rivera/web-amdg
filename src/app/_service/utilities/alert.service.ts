@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Router, NavigationStart } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
+import { AppAlert } from '@/_models';
 
 @Injectable({providedIn: 'root'})
 export class AlertService {
 
-  private subject = new Subject<any>();
+  private subject = new Subject<AppAlert>();
   private keepAfterRouteChange = false;
 
   constructor(private router: Router) {
@@ -23,18 +24,18 @@ export class AlertService {
       });
   }
 
-  getAlert(): Observable<any> {
-      return this.subject.asObservable();
+  getAlert(): Observable<AppAlert> {
+    return this.subject.asObservable();
   }
 
-  success(message: string, keepAfterRouteChange = false) {
-      this.keepAfterRouteChange = keepAfterRouteChange;
-      this.subject.next({ type: 'success', text: message });
+  success(message: AppAlert, keepAfterRouteChange = false) {
+    this.keepAfterRouteChange = keepAfterRouteChange;
+    this.subject.next(message);
   }
 
-  error(message: string, keepAfterRouteChange = false) {
-      this.keepAfterRouteChange = keepAfterRouteChange;
-      this.subject.next({ type: 'error', text: message });
+  error(message: AppAlert, keepAfterRouteChange = false) {
+    this.keepAfterRouteChange = keepAfterRouteChange;
+    this.subject.next(message);
   }
 
   clear() {

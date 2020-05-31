@@ -3,23 +3,28 @@ import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/c
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { AuthenticationService } from '@/_service/auth';
+import { AppAlert } from '@/_models';
 
+/**
+ * Intercepts any response from the backend application. We can perform transformation
+ * here into an AppAlert object
+ */
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
 
     constructor(private _authService: AuthenticationService){}
 
-    intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        
+    intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<AppAlert>> {
         return next.handle(req).pipe(catchError(err => {
-            if ([401, 403].indexOf(err.status) !== -1) {
-                // auto logout if 401 response returned from api
+            if (err.status === 401) {
                 this._authService.logout();
-                location.reload(true);
+                //location.reload(true);
             }
-            
-            const error = err.error.message || err.statusText;
-            return throwError(error);
+            const alert = new AppAlert();
+            alert.code = err.error.code || "GEN5000";
+            alert.message = err.error.message || "Unhandled Error Response";
+    
+            return throwError(alert);
         }))
     }
 

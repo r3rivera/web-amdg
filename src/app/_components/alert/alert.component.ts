@@ -2,36 +2,38 @@ import { Component, OnInit } from '@angular/core';
 
 import { Subscription } from 'rxjs'
 import { AlertService } from '@/_service/utilities/alert.service';
+import { AppAlert } from '@/_models';
 
 @Component({ selector: 'r3app-alert', templateUrl: './alert.component.html'})
 export class AlertComponent implements OnInit {
 
-
   private subscription : Subscription
-  private message : any;
+  appAlert : AppAlert;
 
   constructor(private alertService : AlertService) { }
 
   ngOnInit() {
-    /*
+    console.log("AlertComponent.ngOnInit() :: START");
     this.subscription = this.alertService.getAlert()
-        .subscribe(message => {
-            switch (message && message.type) {
+        .subscribe(msgAlert => {
+            
+            switch (msgAlert && msgAlert.type) {
                 case 'success':
-                    message.cssClass = 'alert alert-success';
+                    msgAlert.style = 'alert alert-success';
                     break;
                 case 'error':
-                    message.cssClass = 'alert alert-danger';
+                    msgAlert.style = 'alert alert-danger';
                     break;
-            }
+        }
+    
+        this.appAlert = msgAlert;
+        console.log(`AlertComponent resp ${JSON.stringify(this.appAlert)}`);
+    });
+    console.log("AlertComponent.ngOnInit() :: END");
+  } 
 
-            this.message = message;
-        });
-        */
-    }
-
-    ngOnDestroy() {
+  ngOnDestroy() {
         this.subscription.unsubscribe();
-    }
+  }
 
 }

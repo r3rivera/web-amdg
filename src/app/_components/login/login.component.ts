@@ -64,6 +64,7 @@ export class LoginComponent implements OnInit {
                 this._router.navigate([this.returnUrl]);
             },
             error => {
+                console.log(`Handling error response :: ${JSON.stringify(error)}`);
                 this._alertService.error(error);
                 this.loading = false;
             });

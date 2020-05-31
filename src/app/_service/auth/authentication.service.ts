@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { AppUser } from '@/_models';
 import { BaseService } from '@/_service/common/base.service';
 
 @Injectable({providedIn: 'root'})
