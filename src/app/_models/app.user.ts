@@ -5,4 +5,5 @@ export class AppUser {
     firstName: string;
     lastName: string;
     token: string;
+    roles: string[]
 }

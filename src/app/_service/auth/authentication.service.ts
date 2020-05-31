@@ -6,24 +6,12 @@ import { map } from 'rxjs/operators';
 import { AppUser } from '@/_models';
 import { BaseService } from '@/_service/common/base.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable({providedIn: 'root'})
 export class AuthenticationService extends BaseService{
-
-  private currentUserSubject: BehaviorSubject<AppUser>;
-  public currentUser: Observable<AppUser>;
 
   constructor(private _http: HttpClient) {
       super();
-      console.log("AuthenticationService.constructor()")
-
-      this.currentUserSubject = new BehaviorSubject<AppUser>(JSON.parse(localStorage.getItem('currentUser')));
-      this.currentUser = this.currentUserSubject.asObservable();
-  }
-
-  public get currentUserValue(): AppUser {
-      return this.currentUserSubject.value;
+      console.log("AuthenticationService.constructor()");
   }
 
 
