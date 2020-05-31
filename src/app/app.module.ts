@@ -10,6 +10,7 @@ import { AlertComponent } from './_components/alert/alert.component';
 import { DashboardComponent } from './_components/secured/dashboard/dashboard.component';
 import { AppRoutingModule } from './app.routing';
 import { HttpClientModule } from '@angular/common/http';
+import { AppointmentComponent } from './_components/secured/appointment/appointment.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     RegisterComponent,
     AlertComponent,
-    DashboardComponent
+    DashboardComponent,
+    AppointmentComponent
   ],
 
   providers: [],
