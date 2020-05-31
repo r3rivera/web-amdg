@@ -4,7 +4,6 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { AppUser } from '@/_models';
-import { environment } from '../../../environments/environment';
 import { BaseService } from '@/_service/common/base.service';
 
 @Injectable({
@@ -18,7 +17,7 @@ export class AuthenticationService extends BaseService{
   constructor(private _http: HttpClient) {
       super();
       console.log("AuthenticationService.constructor()")
-      console.log(`AuthenticationService.constructor() :: ${environment.apiHostUrl}`)
+
       this.currentUserSubject = new BehaviorSubject<AppUser>(JSON.parse(localStorage.getItem('currentUser')));
       this.currentUser = this.currentUserSubject.asObservable();
   }
@@ -30,8 +29,7 @@ export class AuthenticationService extends BaseService{
 
   //Calls to authenticate the username with the password
   authenticateUser(username : string, password : string) {
-
-    const url = `${environment.apiHostUrl}/users/authenticate`;
+    const url = `${this.getApiUrl()}/users/authenticate`;
     console.log("AuthenticationService.login() :: " + url);
 
     const headerMap = this.generateBasicAuthHeader(username, password);
