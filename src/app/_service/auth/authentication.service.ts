@@ -5,16 +5,18 @@ import { map } from 'rxjs/operators';
 
 import { AppUser } from '@/_models';
 import { environment } from '../../../environments/environment';
+import { BaseService } from '@/_service/common/base.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthenticationService {
+export class AuthenticationService extends BaseService{
 
   private currentUserSubject: BehaviorSubject<AppUser>;
   public currentUser: Observable<AppUser>;
 
   constructor(private _http: HttpClient) {
+      super();
       console.log("AuthenticationService.constructor()")
       console.log(`AuthenticationService.constructor() :: ${environment.apiHostUrl}`)
       this.currentUserSubject = new BehaviorSubject<AppUser>(JSON.parse(localStorage.getItem('currentUser')));
@@ -27,12 +29,13 @@ export class AuthenticationService {
 
 
   //Calls to authenticate the username with the password
-  login(username, password) {
+  authenticateUser(username : string, password : string) {
 
     const url = `${environment.apiHostUrl}/users/authenticate`;
     console.log("AuthenticationService.login() :: " + url);
 
-    return this._http.post<any>(url, { username, password })
+    const headerMap = this.generateBasicAuthHeader(username, password);
+    return this._http.post<any>(url, {}, { headers: headerMap })
         .pipe(map(user => {
             // store user details and jwt token in local storage to keep user logged in between page refreshes
             localStorage.setItem('currentUser', JSON.stringify(user));
