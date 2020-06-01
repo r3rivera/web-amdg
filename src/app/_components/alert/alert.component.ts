@@ -16,7 +16,7 @@ export class AlertComponent implements OnInit {
     console.log("AlertComponent.ngOnInit() :: START");
     this.subscription = this.alertService.getAlert()
         .subscribe(msgAlert => {
-            
+          console.log(`AlertComponent resp 1 :: ${JSON.stringify(msgAlert)}`);
             switch (msgAlert && msgAlert.type) {
                 case 'success':
                     msgAlert.style = 'alert alert-success';
@@ -27,7 +27,7 @@ export class AlertComponent implements OnInit {
         }
     
         this.appAlert = msgAlert;
-        console.log(`AlertComponent resp ${JSON.stringify(this.appAlert)}`);
+        console.log(`AlertComponent resp 2 :: ${JSON.stringify(this.appAlert)}`);
     });
     console.log("AlertComponent.ngOnInit() :: END");
   } 

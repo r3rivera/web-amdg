@@ -1,3 +1,1 @@
-<div *ngIf="appAlert">
-    {{appAlert.message}}
-</div>
+<div *ngIf="appAlert" [ngClass]="appAlert.style">{{appAlert.message}}</div>

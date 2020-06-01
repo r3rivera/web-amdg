@@ -16,13 +16,18 @@ export class ErrorInterceptor implements HttpInterceptor {
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<AppAlert>> {
         return next.handle(req).pipe(catchError(err => {
+            
+            const alert = new AppAlert(); 
             if (err.status === 401) {
+
                 this._authService.logout();
+                alert.type = "error";
                 //location.reload(true);
             }
-            const alert = new AppAlert();
+            
             alert.code = err.error.code || "GEN5000";
             alert.message = err.error.message || "Unhandled Error Response";
+            
     
             return throwError(alert);
         }))
