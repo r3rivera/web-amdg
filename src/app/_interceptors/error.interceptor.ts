@@ -15,8 +15,9 @@ export class ErrorInterceptor implements HttpInterceptor {
     constructor(private _authService: AuthenticationService){}
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<AppAlert>> {
+
+        console.debug("ErrorInterceptor...");
         return next.handle(req).pipe(catchError(err => {
-            
             const alert = new AppAlert(); 
             if (err.status === 401) {
 
@@ -24,11 +25,9 @@ export class ErrorInterceptor implements HttpInterceptor {
                 alert.type = "error";
                 //location.reload(true);
             }
-            
+        
             alert.code = err.error.code || "GEN5000";
             alert.message = err.error.message || "Unhandled Error Response";
-            
-    
             return throwError(alert);
         }))
     }

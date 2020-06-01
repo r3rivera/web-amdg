@@ -8,19 +8,20 @@ import { AuthenticationService } from '@/_service/auth/authentication.service';
 export class TokenInterceptor implements HttpInterceptor {
     constructor(private _authService: AuthenticationService) {}
 
-    intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
+        console.debug("TokenInterceptor...");
         // add authorization header with jwt token if available
         let currentUser = this._authService.currentUserValue;
 
         if (currentUser && currentUser.token) {
-            request = request.clone({
+            req = req.clone({
                 setHeaders: { 
                     "x-rcapp-token": `${currentUser.token}`
                 }
             });
         }
 
-        return next.handle(request);
+        return next.handle(req);
     }
 }

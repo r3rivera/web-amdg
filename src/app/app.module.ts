@@ -34,7 +34,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   ],
   providers: [
     { provide : HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
-    { provide : HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true}
+    { provide : HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })
