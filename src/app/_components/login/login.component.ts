@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
     ) {
         // redirect to home if already logged in
         if (this._authenticationService.currentUserValue) {
-            this._router.navigate(['/']);
+            this._router.navigate(['/dashboard']);
         }
     }
 
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required]
     });
     // get return url from route parameters or default to '/'
-    this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/';
+    this.returnUrl = this._route.snapshot.queryParams['returnUrl'] || '/dashboard';
   }
 
     // convenience getter for easy access to form fields

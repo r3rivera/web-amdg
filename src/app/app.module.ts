@@ -14,6 +14,7 @@ import { AppointmentComponent } from './_components/secured/appointment/appointm
 import { TokenInterceptor } from './_interceptors/token.interceptor';
 import { ErrorInterceptor } from './_interceptors/error.interceptor';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MainComponent } from './_components/main/main.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     RegisterComponent,
     AlertComponent,
     DashboardComponent,
-    AppointmentComponent
+    AppointmentComponent,
+    MainComponent
   ],
   providers: [
     { provide : HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
