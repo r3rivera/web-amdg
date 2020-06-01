@@ -1,10 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+/* My Custom Styles */
 
-/* Importing Bootstrap SCSS file. */
+
+@import './assets/custom.styles.scss';
+
+
+/* Importing Default Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
 
-$theme-colors: (
-  "primary": #004904,
-  "secondary": #a8e600,
-  "danger": #ff4136
-) !important;
+
