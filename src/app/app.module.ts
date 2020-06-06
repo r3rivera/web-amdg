@@ -15,6 +15,7 @@ import { TokenInterceptor } from './_interceptors/token.interceptor';
 import { ErrorInterceptor } from './_interceptors/error.interceptor';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MainComponent } from './_components/main/main.component';
+import { NavbarComponent } from './_components/navbar/navbar.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { MainComponent } from './_components/main/main.component';
     AlertComponent,
     DashboardComponent,
     AppointmentComponent,
-    MainComponent
+    MainComponent,
+    NavbarComponent
   ],
   providers: [
     { provide : HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },

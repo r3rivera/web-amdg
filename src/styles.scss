@@ -1,8 +1,9 @@
 /* My Custom Styles */
+@import './assets/custom-vars.styles.scss';
 
 
+@import './assets/custom-main.style.scss';
 @import './assets/custom-nav.style.scss';
-@import './assets/custom.styles.scss';
 
 
 /* Importing Default Bootstrap SCSS file. */
