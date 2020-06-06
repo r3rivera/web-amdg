@@ -16,6 +16,7 @@ import { ErrorInterceptor } from './_interceptors/error.interceptor';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MainComponent } from './_components/main/main.component';
 import { NavbarComponent } from './_components/navbar/navbar.component';
+import { SidenavComponent } from './_components/secured/sidenav/sidenav.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { NavbarComponent } from './_components/navbar/navbar.component';
     DashboardComponent,
     AppointmentComponent,
     MainComponent,
-    NavbarComponent
+    NavbarComponent,
+    SidenavComponent
   ],
   providers: [
     { provide : HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
