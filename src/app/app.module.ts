@@ -17,6 +17,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MainComponent } from './_components/main/main.component';
 import { NavbarComponent } from './_components/navbar/navbar.component';
 import { SidenavComponent } from './_components/secured/sidenav/sidenav.component';
+import { SearchComponent } from './_components/secured/search/search.component';
+import { UserprofileComponent } from './_components/secured/userprofile/userprofile.component';
 
 
 @NgModule({
@@ -36,7 +38,9 @@ import { SidenavComponent } from './_components/secured/sidenav/sidenav.componen
     AppointmentComponent,
     MainComponent,
     NavbarComponent,
-    SidenavComponent
+    SidenavComponent,
+    SearchComponent,
+    UserprofileComponent
   ],
   providers: [
     { provide : HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
