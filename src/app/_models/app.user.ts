@@ -5,12 +5,13 @@ export class AppUser {
     firstName: string;
     lastName: string;
     token: string;
-    roles: string[]
+    roles: string[];
 }
 
 export class AppBasicUser{
     username: string;
     firstName: string;
     lastName: string;
-    roles: string[]
+    birthDate: string;
+    gender: string;
 }

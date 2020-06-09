@@ -7,13 +7,10 @@
       <form class="form-inline" [formGroup]="searchCriteriaForm" (ngSubmit)="onSearch()">
         <div class="form-group px-1">
           <label class="control-label pr-1" for="criteria">Search By</label>
-          <input type="text" formControlName="searchCriteria" class="form-control" id="criteria" placeholder="Value">
-          <!--
-          <select formControlName="criteria" class="form-control" id="searchCriteria">
+          <select formControlName="searchCriteria" class="form-control" id="searchCriteria">
             <option>First Name</option>
             <option>Last Name</option>
           </select>
-        -->
         </div>
 
         <div class="form-group px-1">

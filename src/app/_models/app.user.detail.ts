@@ -1,4 +1,4 @@
-import { AppUser } from './app.user';
+import { AppBasicUser } from './app.user';
 
 
 export class AppUserPhone {
@@ -18,7 +18,7 @@ export class AppUserAddress{
 }
 
 export class AppUserDetails {
-    userInfo: AppUser;
+    userInfo: AppBasicUser;
     phoneDetails: AppUserPhone[];
     address: AppUserAddress[];
     verified: Boolean;

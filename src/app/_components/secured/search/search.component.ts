@@ -35,9 +35,8 @@ export class SearchComponent implements OnInit {
       return;
     }
 
-    //this._searchUserService.searchUserDetails(this.f.searchCriteria.value, this.f.searchValue.value);
-    console.log(this.f.searchCriteria);
-    console.log(this.f.searchValue);
+    this._searchUserService.searchUserDetails(this.f.searchCriteria.value, this.f.searchValue.value);
+
   }
 
 }
