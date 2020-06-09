@@ -5,10 +5,12 @@ import { FormGroup, FormBuilder, Validators  } from '@angular/forms';
 export class SearchComponent implements OnInit {
 
   searchCriteriaForm: FormGroup
+  loading: Boolean = false;
 
   constructor(private _formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+
     this.searchCriteriaForm = this._formBuilder.group({
       criteria: ['', Validators.required],
       value: ['', Validators.required]
@@ -18,6 +20,10 @@ export class SearchComponent implements OnInit {
 
   onSearch(): void {
     console.log("Performing search");
+    if (this.searchCriteriaForm.invalid) {
+      return;
+  }
+
     console.log(JSON.stringify(this.searchCriteriaForm));
   }
 
