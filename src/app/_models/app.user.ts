@@ -7,3 +7,10 @@ export class AppUser {
     token: string;
     roles: string[]
 }
+
+export class AppBasicUser{
+    username: string;
+    firstName: string;
+    lastName: string;
+    roles: string[]
+}
