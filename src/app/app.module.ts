@@ -19,6 +19,7 @@ import { NavbarComponent } from './_components/navbar/navbar.component';
 import { SidenavComponent } from './_components/secured/sidenav/sidenav.component';
 import { SearchComponent } from './_components/secured/search/search.component';
 import { UserprofileComponent } from './_components/secured/userprofile/userprofile.component';
+import { ManageAppointmentComponent } from './_components/secured/appointment/manage-appointment/manage-appointment.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { UserprofileComponent } from './_components/secured/userprofile/userprof
     NavbarComponent,
     SidenavComponent,
     SearchComponent,
-    UserprofileComponent
+    UserprofileComponent,
+    ManageAppointmentComponent
   ],
   providers: [
     { provide : HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },

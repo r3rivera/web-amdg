@@ -9,7 +9,19 @@
             <h2 class="h6 text-uppercase mb-0">Search Patient</h2>
           </div>
           <div class="card-body">
-            <p class="text-gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            <form [formGroup]="searchCriteriaForm" (ngSubmit)="onSearch()">
+              <div class="form-group">
+                <label for="searchCriteria">Search By</label>
+                <select formControlName="criteria" class="form-control" id="searchCriteria">
+                  <option>First Name</option>
+                  <option>Last Name</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="searchValue">Email address</label>
+                <input formControlName="value" type="text" class="form-control" id="searchValue">
+              </div>
+            </form>
           </div>
         </div>
       </div>
