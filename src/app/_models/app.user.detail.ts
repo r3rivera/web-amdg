@@ -1,13 +1,13 @@
 import { AppBasicUser } from './app.user';
 
 
-export class AppUserPhone {
+export interface AppUserPhone {
     number: string;
     countryCode: string;
     type: string;
 }
 
-export class AppUserAddress{
+export interface AppUserAddress{
     street1: string;
     street2: string;
     city: string;
@@ -17,9 +17,10 @@ export class AppUserAddress{
     type: string;
 }
 
-export class AppUserDetails {
+export interface AppUserDetails {
     userInfo: AppBasicUser;
     phoneDetails: AppUserPhone[];
     address: AppUserAddress[];
     verified: Boolean;
 }
+

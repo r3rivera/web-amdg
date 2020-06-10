@@ -18,18 +18,13 @@ export class SearchUserService extends BaseService{
    * @param criteria 
    * @param value 
    */
-  searchUserDetails(criteria: string, value: string) : AppUserDetails[]{
+  searchUserDetails(criteria: string, value: string) {
     
     const url = `${this.getApiUrl()}/customer/users?criteria=${criteria}&value=${value}`;
     const encodeuri = encodeURI(url);
     
     console.log(`Searching user details with uri of ${encodeuri}`);
-    this._http.get(encodeuri).pipe(map(userDetails => {
-      JSON.stringify(userDetails);
-      return userDetails;
-    }));
-
-    return null;
+    return this._http.get(encodeuri);
   }
 
 

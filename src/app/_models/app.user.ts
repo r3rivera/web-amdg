@@ -1,4 +1,6 @@
-export class AppUser {
+
+
+export interface AppUser {
     id: number;
     username: string;
     password: string;
@@ -8,10 +10,11 @@ export class AppUser {
     roles: string[];
 }
 
-export class AppBasicUser{
+export interface AppBasicUser{
     username: string;
     firstName: string;
     lastName: string;
     birthDate: string;
     gender: string;
 }
+

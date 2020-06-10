@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators  } from '@angular/forms';
 import { AlertService } from '@/_service/utilities/alert.service';
 import { SearchUserService } from '@/_service/search';
+import { first } from 'rxjs/operators';
+import { AppUserDetails } from '@/_models';
 
 @Component({selector: 'r3app-search',templateUrl: './search.component.html'})
 export class SearchComponent implements OnInit {
@@ -35,8 +37,23 @@ export class SearchComponent implements OnInit {
       return;
     }
 
-    this._searchUserService.searchUserDetails(this.f.searchCriteria.value, this.f.searchValue.value);
+    this._searchUserService.searchUserDetails(this.f.searchCriteria.value, this.f.searchValue.value)
+    .pipe(first()).subscribe( 
+      result => {
+          let data = <SearchResult>result;
+          console.log(data);
+      },
+      error => {
+        console.error("Error getting the result");
+        console.error(error);
+      });
 
   }
 
+}
+
+//Specific for this component
+interface SearchResult{
+  status: number;
+  data?: AppUserDetails;
 }
