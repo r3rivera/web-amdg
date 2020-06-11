@@ -20,6 +20,7 @@ import { SidenavComponent } from './_components/secured/sidenav/sidenav.componen
 import { SearchComponent } from './_components/secured/search/search.component';
 import { UserprofileComponent } from './_components/secured/userprofile/userprofile.component';
 import { ManageAppointmentComponent } from './_components/secured/appointment/manage-appointment/manage-appointment.component';
+import { MessageComponent } from './_components/secured/message/message.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { ManageAppointmentComponent } from './_components/secured/appointment/ma
     SidenavComponent,
     SearchComponent,
     UserprofileComponent,
-    ManageAppointmentComponent
+    ManageAppointmentComponent,
+    MessageComponent
   ],
   providers: [
     { provide : HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
