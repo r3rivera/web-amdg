@@ -11,6 +11,9 @@ export class SearchComponent implements OnInit {
   searchCriteriaForm: FormGroup;
   loading: Boolean = false;
 
+  searchedUsers : AppUserDetails[];
+
+  
   constructor(
     private _formBuilder: FormBuilder,
     private _alertService: AlertService,
@@ -38,9 +41,11 @@ export class SearchComponent implements OnInit {
     }
 
     this._searchUserService.searchUserDetails(this.f.searchCriteria.value, this.f.searchValue.value)
-    .pipe(first()).subscribe( 
+    //.pipe(first())
+    .subscribe( 
       result => {
-          let data = <SearchResult>result;
+          let data:SearchResult = <SearchResult>result;
+          this.searchedUsers = data.data;
           console.log(data);
       },
       error => {
@@ -55,5 +60,5 @@ export class SearchComponent implements OnInit {
 //Specific for this component
 interface SearchResult{
   status: number;
-  data?: AppUserDetails;
+  data?: AppUserDetails[];
 }
