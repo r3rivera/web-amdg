@@ -21,6 +21,7 @@ import { SearchComponent } from './_components/secured/search/search.component';
 import { UserprofileComponent } from './_components/secured/userprofile/userprofile.component';
 import { ManageAppointmentComponent } from './_components/secured/appointment/manage-appointment/manage-appointment.component';
 import { MessageComponent } from './_components/secured/message/message.component';
+import { AdminSummaryComponent } from './_components/secured/admin-summary/admin-summary.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { MessageComponent } from './_components/secured/message/message.componen
     SearchComponent,
     UserprofileComponent,
     ManageAppointmentComponent,
-    MessageComponent
+    MessageComponent,
+    AdminSummaryComponent
   ],
   providers: [
     { provide : HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },

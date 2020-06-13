@@ -3,13 +3,19 @@
     <div class="text-gray-400 text-uppercase px-3 px-lg-4 py-4 font-weight-bold small headings-font-family">Manage Patient</div>
     <ul class="sidebar-menu list-unstyled">
         <li class="sidebar-list-item">
-            <a href="#" class="sidebar-link text-muted active"><i class="o-home-1 mr-3 text-gray"></i><span>Search Patient</span></a>
+            <a routerLink="search-user" routerLinkActive="active" class="sidebar-link text-muted">
+                <i class="o-home-1 mr-3 text-gray"></i><span>Search Patient</span>
+            </a>
         </li>
         <li class="sidebar-list-item">
-            <a routerLink="/manageAppointment" class="sidebar-link text-muted"><i class="o-table-content-1 mr-3 text-gray"></i><span>Manage Appointments</span></a>
+            <a routerLink="manage-appointment" routerLinkActive="active" class="sidebar-link text-muted">
+                <i class="o-table-content-1 mr-3 text-gray"></i><span>Manage Appointments</span>
+            </a>
         </li>
         <li class="sidebar-list-item">
-            <a [routerLink]="['/messages']" class="sidebar-link text-muted"><i class="o-survey-1 mr-3 text-gray"></i><span>My Messages</span></a>
+            <a [routerLink]="['/messages']" routerLinkActive="active" class="sidebar-link text-muted">
+                <i class="o-survey-1 mr-3 text-gray"></i><span>My Messages</span>
+            </a>
         </li>
     </ul>
 
