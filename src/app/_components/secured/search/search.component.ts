@@ -50,8 +50,12 @@ export class SearchComponent implements OnInit {
           console.log(data);
       },
       error => {
-        console.error("Error getting the result");
         console.error(error);
+        this._alertService.error({
+          code:'2345',
+          message: 'Unable to process search result!',
+          type: 'error'
+        });
       });
 
   }

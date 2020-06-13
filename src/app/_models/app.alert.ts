@@ -1,6 +1,6 @@
 export class AppAlert {
-    code : string;
+    code? : string;
     message : string;
-    style : string;
-    type : string;
+    style? : string;
+    type? : string;
 }
