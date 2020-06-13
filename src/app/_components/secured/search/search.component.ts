@@ -18,7 +18,6 @@ export class SearchComponent implements OnInit {
     private _formBuilder: FormBuilder,
     private _alertService: AlertService,
     private _searchUserService: SearchUserService
-
     ) { }
 
   ngOnInit(): void {
@@ -27,6 +26,8 @@ export class SearchComponent implements OnInit {
       searchCriteria: ['', Validators.required],
       searchValue: ['', Validators.required]
     });
+
+    this.searchedUsers = new Array();
 
   }
 

@@ -43,7 +43,9 @@
           </tr>
         </thead>
         <tbody>
-
+          <tr>
+            <td class="text-center" colspan="6" *ngIf="(searchedUsers.length == 0)">No records found</td>
+          </tr>
           <tr *ngFor="let user of searchedUsers">
             <th scope="row">{{user.userInfo.username}}</th>
             <td>{{user.userInfo.firstName}}</td>
