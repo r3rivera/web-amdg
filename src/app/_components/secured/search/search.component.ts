@@ -44,8 +44,8 @@ export class SearchComponent implements OnInit {
     this._searchUserService.searchUserDetails(this.f.searchCriteria.value, this.f.searchValue.value)
     //.pipe(first())
     .subscribe( 
-      result => {
-          let data:SearchResult = <SearchResult>result;
+      (result:SearchResult) => {
+          let data:SearchResult = result;
           this.searchedUsers = data.data;
           console.log(data);
       },
