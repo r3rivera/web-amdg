@@ -1,11 +1,18 @@
 export interface InboxMessage{
+    messageId: string;
     firstName: string;
     lastName: string;
+    sender: string;
     channel: Channel;
     subject?: string;
     date: string;
     category?: string;
     state: MessageState;
+}
+
+export interface InboxMessageResponse{
+    messageId: string;
+    response: string;
 }
 
 export enum Channel{
