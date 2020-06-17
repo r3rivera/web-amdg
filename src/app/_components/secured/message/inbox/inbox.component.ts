@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { InboxMessage } from '@/_models';
+import { InboxMessage, InboxMessageDetails } from '@/_models';
 import { AlertService } from '@/_service/utilities';
 import { InboxService } from '@/_service/message';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -46,13 +46,15 @@ export class InboxComponent implements OnInit {
   }
 
 
-  openMessage(messageId: string){
+  openMessage(messageDetails: InboxMessageDetails){
+
     console.log("Opening modal dialog");
     const modalRef = this._modalService.open(ResponseComponent,{
       centered: true,
-      size: 'lg'
+      size: 'xl',
+      backdrop: 'static'
     });
-    modalRef.componentInstance.name = messageId;
+    modalRef.componentInstance.contentDetails = messageDetails;
   }
   
 

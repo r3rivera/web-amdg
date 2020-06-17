@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { InboxMessageDetails } from '@/_models';
 
 @Component({
   selector: 'r3app-response-content',
@@ -7,15 +8,16 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class ResponseComponent implements OnInit{
 
-  @Input() name: string = "Hello";
+  @Input() contentDetails: InboxMessageDetails;
 
 
-  constructor(public activeModal: NgbActiveModal) {
-    console.log("ResponseComponent.constructor() :" +name);
-  }
+  constructor(public activeModal: NgbActiveModal) {}
 
-  ngOnInit(): void {
-    console.log("ResponseComponent.onInit() : :" +name);
+  ngOnInit(): void {}
+
+
+  sendResponse(){
+    console.log("Sending the response... ");
   }
 }
 

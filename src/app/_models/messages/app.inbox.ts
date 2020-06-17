@@ -10,6 +10,10 @@ export interface InboxMessage{
     state: MessageState;
 }
 
+export interface InboxMessageDetails extends InboxMessage{
+    messageBody: string;
+}
+
 export interface InboxMessageResponse{
     messageId: string;
     response: string;
