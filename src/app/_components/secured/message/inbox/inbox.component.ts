@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { InboxMessage } from '@/_models';
 import { AlertService } from '@/_service/utilities';
 import { InboxService } from '@/_service/message';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ResponseComponent } from '@/_components/secured/message/response';
 
 @Component({
   selector: 'r3app-inbox',
@@ -13,7 +15,8 @@ export class InboxComponent implements OnInit {
 
   constructor(
     private _alertService: AlertService,
-    private _inboxService: InboxService
+    private _inboxService: InboxService,
+    private _modalService: NgbModal
   ){
     this.inboxMessageResult = new Array();
     console.info("Inbox::Contructor()");
@@ -40,6 +43,16 @@ export class InboxComponent implements OnInit {
       }
     );
 
+  }
+
+
+  openMessage(messageId: string){
+    console.log("Opening modal dialog");
+    const modalRef = this._modalService.open(ResponseComponent,{
+      centered: true,
+      size: 'lg'
+    });
+    modalRef.componentInstance.name = messageId;
   }
   
 
